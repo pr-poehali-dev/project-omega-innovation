@@ -193,7 +193,7 @@ export default function WebGLTextDistortion() {
       }
 
       ctx.font = '12px monospace'
-      const actualCharWidth = ctx.measureText('неа ').width / 4 // 4 characters in "неа "
+      const actualCharWidth = ctx.measureText('купи ').width / 4 // 4 characters in "купи "
 
       const internalPadding = isDesktop ? 80 : 15
       const availableTextWidth = targetWidth - (internalPadding * 2)
@@ -213,8 +213,8 @@ export default function WebGLTextDistortion() {
       ctx.fillStyle = '#808080'
       ctx.font = '12px monospace'
 
-      const text = 'неа '
-      const specialText = 'вот это да'
+      const text = 'купи '
+      const specialText = '$10,000,000,000'
       const lineHeight = 16
 
       const horizontalOffset = internalPadding
@@ -227,7 +227,7 @@ export default function WebGLTextDistortion() {
       const standardLineLength = nopesPerLine * text.length
 
       let specialInserted = false
-      let specialTextNormalizedPos = { x: 0, y: 0 }
+      const specialTextNormalizedPos = { x: 0, y: 0 }
 
       for (let lineIndex = 0; lineIndex < linesCount; lineIndex++) {
         const y = lineIndex * lineHeight
@@ -257,8 +257,8 @@ export default function WebGLTextDistortion() {
           // Fixed epicenter positioning to be consistent across screen sizes
           // Calculate position as percentage of line rather than fixed pixel offset
           const specialTextStartPos = nopesBeforeSpecial * text.length
-          const etoPositionInSpecialText = 4 // "вот " is 4 characters, so "это" starts at position 4
-          const totalCharPosition = specialTextStartPos + etoPositionInSpecialText + 1 // +1 to center on "это"
+          const etoPositionInSpecialText = 7 // center of "$10,000,000,000" (15 chars)
+          const totalCharPosition = specialTextStartPos + etoPositionInSpecialText + 1
 
           // Normalize position relative to total line length for consistency
           specialTextNormalizedPos.x = (horizontalOffset + (totalCharPosition * actualCharWidth)) / textCanvas.width
@@ -298,7 +298,7 @@ export default function WebGLTextDistortion() {
 
         // Applied same consistent positioning logic to fallback
         const specialTextStartPos = nopesBeforeSpecial * text.length
-        const etoPositionInSpecialText = 4
+        const etoPositionInSpecialText = 7
         const totalCharPosition = specialTextStartPos + etoPositionInSpecialText + 1
 
         specialTextNormalizedPos.x = (horizontalOffset + (totalCharPosition * actualCharWidth)) / textCanvas.width
