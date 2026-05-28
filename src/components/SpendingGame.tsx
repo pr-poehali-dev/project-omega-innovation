@@ -6,7 +6,7 @@ const BUDGET = 100_000_000_000
 const ITEMS = [
   { id: 1,   img: 'https://images.unsplash.com/photo-1582095133179-bfd08e2fb6b8?w=80&h=80&fit=crop&auto=format', name: 'Жвачка', price: 1, description: 'Мятная, 5 штук' },
   { id: 2,   img: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=80&h=80&fit=crop&auto=format', name: 'Газировка', price: 2, description: 'Кола, 0.5 л' },
-  { id: 3,   img: 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=80&h=80&fit=crop&auto=format', name: 'Мороженое', price: 3, description: 'Ванильный рожок' },
+  { id: 3,   img: 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=80&h=80&fit=crop&auto=format', name: 'Мороженое', price: 4, description: 'Ванильный рожок' },
   { id: 4,   img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=80&h=80&fit=crop&auto=format', name: 'Бургер', price: 5, description: 'Просто поесть' },
   { id: 5,   img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=80&h=80&fit=crop&auto=format', name: 'Кофе в Starbucks', price: 7, description: 'Гранде латте' },
   { id: 6,   img: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=80&h=80&fit=crop&auto=format', name: 'Пиво в баре', price: 8, description: 'Крафтовое, пинта' },
@@ -52,8 +52,8 @@ const ITEMS = [
   { id: 46,  img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=80&h=80&fit=crop&auto=format', name: 'Подводная лодка', price: 15_000_000, description: 'Туристическая, 8 мест' },
   { id: 47,  img: 'https://images.unsplash.com/photo-1518895312237-a9e23508077d?w=80&h=80&fit=crop&auto=format', name: 'Казино в Лас-Вегасе', price: 20_000_000, description: 'Небольшое, но своё' },
   { id: 48,  img: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=80&h=80&fit=crop&auto=format', name: 'Посадить лес', price: 30_000_000, description: '300 млн деревьев' },
-  { id: 49,  img: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=80&h=80&fit=crop&auto=format', name: 'Частный остров', price: 50_000_000, description: 'Где-то в Карибском море' },
-  { id: 50,  img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=80&h=80&fit=crop&auto=format', name: '100 школ', price: 50_000_000, description: 'По всей планете' },
+  { id: 49,  img: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=80&h=80&fit=crop&auto=format', name: 'Частный остров', price: 48_000_000, description: 'Где-то в Карибском море' },
+  { id: 50,  img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=80&h=80&fit=crop&auto=format', name: '100 школ', price: 55_000_000, description: 'По всей планете' },
   { id: 51,  img: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=80&h=80&fit=crop&auto=format', name: 'Ракета SpaceX', price: 62_000_000, description: 'Один запуск Falcon 9' },
   { id: 52,  img: 'https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?w=80&h=80&fit=crop&auto=format', name: 'Парк аттракционов', price: 80_000_000, description: 'Как маленький Дисней' },
   { id: 53,  img: 'https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=80&h=80&fit=crop&auto=format', name: 'Спасти слонов Африки', price: 100_000_000, description: 'Все 415 000 особей' },
@@ -85,28 +85,28 @@ const ITEMS = [
   { id: 79,  img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80&h=80&fit=crop&auto=format', name: 'Купить страну', price: 50_000_000_000, description: 'ВВП небольшого государства' },
   { id: 80,  img: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=80&h=80&fit=crop&auto=format', name: 'Солнечная энергия для Африки', price: 100_000_000_000, description: 'Весь континент на 10 лет' },
   { id: 81,  img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=80&h=80&fit=crop&auto=format', name: 'Картошка фри', price: 3, description: 'Средняя, без соуса' },
-  { id: 82,  img: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=80&h=80&fit=crop&auto=format', name: 'Сок в пакетике', price: 1, description: 'Яблочный, 200 мл' },
+  { id: 82,  img: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=80&h=80&fit=crop&auto=format', name: 'Сок в пакетике', price: 2, description: 'Яблочный, 200 мл' },
   { id: 83,  img: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=80&h=80&fit=crop&auto=format', name: 'Зубная щётка', price: 4, description: 'Oral-B, средняя жёсткость' },
   { id: 84,  img: 'https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=80&h=80&fit=crop&auto=format', name: 'Носки', price: 6, description: 'Хлопок, пара' },
-  { id: 85,  img: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=80&h=80&fit=crop&auto=format', name: 'Ведро', price: 9, description: 'Пластиковое, 10 литров' },
+  { id: 85,  img: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=80&h=80&fit=crop&auto=format', name: 'Ведро', price: 10, description: 'Пластиковое, 10 литров' },
   { id: 86,  img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=80&h=80&fit=crop&auto=format', name: 'Воздушный шарик', price: 2, description: 'Красный, гелиевый' },
   { id: 87,  img: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=80&h=80&fit=crop&auto=format', name: 'Ручка BIC', price: 1, description: 'Синяя, шариковая' },
   { id: 88,  img: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=80&h=80&fit=crop&auto=format', name: 'Туалетная бумага', price: 3, description: '4 рулона, 3 слоя' },
-  { id: 89,  img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop&auto=format', name: 'Серебряная ложка', price: 25, description: 'Настоящее серебро 925' },
-  { id: 90,  img: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=80&h=80&fit=crop&auto=format', name: 'Матрёшка', price: 30, description: 'Расписная, 7 слоёв' },
+  { id: 89,  img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&h=80&fit=crop&auto=format', name: 'Серебряная ложка', price: 28, description: 'Настоящее серебро 925' },
+  { id: 90,  img: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=80&h=80&fit=crop&auto=format', name: 'Матрёшка', price: 35, description: 'Расписная, 7 слоёв' },
   { id: 91,  img: 'https://images.unsplash.com/photo-1516598540642-e8f40a09d939?w=80&h=80&fit=crop&auto=format', name: 'Резиновая уточка', price: 5, description: 'Пищит при нажатии' },
   { id: 92,  img: 'https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=80&h=80&fit=crop&auto=format', name: 'Бант для кошки', price: 2, description: 'Розовый, с блёстками' },
-  { id: 93,  img: 'https://images.unsplash.com/photo-1502662672603-b8d48f60dcea?w=80&h=80&fit=crop&auto=format', name: 'Рогатка', price: 8, description: 'Деревянная, классика' },
+  { id: 93,  img: 'https://images.unsplash.com/photo-1502662672603-b8d48f60dcea?w=80&h=80&fit=crop&auto=format', name: 'Рогатка', price: 9, description: 'Деревянная, классика' },
   { id: 94,  img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=80&h=80&fit=crop&auto=format', name: 'Магнит на холодильник', price: 3, description: 'Из Парижа' },
-  { id: 95,  img: 'https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=80&h=80&fit=crop&auto=format', name: 'Дартс', price: 20, description: 'Набор из 3 стрел' },
-  { id: 96,  img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=80&h=80&fit=crop&auto=format', name: 'Назвать астероид', price: 150, description: 'Официально, через реестр МАС' },
+  { id: 95,  img: 'https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=80&h=80&fit=crop&auto=format', name: 'Дартс', price: 22, description: 'Набор из 3 стрел' },
+  { id: 96,  img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=80&h=80&fit=crop&auto=format', name: 'Назвать астероид', price: 160, description: 'Официально, через реестр МАС' },
   { id: 97,  img: 'https://images.unsplash.com/photo-1608890897892-6e3c9c7a8b13?w=80&h=80&fit=crop&auto=format', name: 'Зуб динозавра', price: 2_500, description: 'Трицератопс, 65 млн лет' },
   { id: 98,  img: 'https://images.unsplash.com/photo-1504608524841-42584120d693?w=80&h=80&fit=crop&auto=format', name: 'Метеостанция', price: 5_000, description: 'Профессиональная, с радаром' },
   { id: 99,  img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=80&h=80&fit=crop&auto=format', name: 'Айсберг на аукционе', price: 500_000, description: 'Гренландия, 10 000 тонн льда' },
   { id: 100, img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=80&h=80&fit=crop&auto=format', name: 'Сделать радугу', price: 1_000_000, description: 'Система распыления воды над городом' },
 ]
 
-const SORTED_ITEMS = [...ITEMS].sort((a, b) => a.price - b.price)
+const SORTED_ITEMS = [...ITEMS].sort((a, b) => (a.price + a.id * 0.001) - (b.price + b.id * 0.001))
 
 function formatMoney(n: number) {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(2)}B`
