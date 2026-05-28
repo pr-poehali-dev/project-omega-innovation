@@ -106,6 +106,8 @@ const ITEMS = [
   { id: 100, img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop', name: 'Сделать радугу', price: 1_000_000, description: 'Система распыления воды над городом' },
 ]
 
+const SORTED_ITEMS = [...ITEMS].sort((a, b) => a.price - b.price)
+
 function formatMoney(n: number) {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(2)}B`
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`
@@ -232,7 +234,7 @@ export default function SpendingGame({ onClose }: Props) {
 
       {/* Items */}
       <div className="flex-1 overflow-y-auto px-4 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 content-start">
-        {ITEMS.map(item => {
+        {SORTED_ITEMS.map(item => {
           const count = spent[item.id] || 0
           const canAfford = remaining >= item.price
           return (
