@@ -532,11 +532,51 @@ export default function WebGLTextDistortion() {
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 pointer-events-none">
         <p className="text-gray-500 text-xs tracking-widest uppercase mb-4 font-mono">у тебя есть $100,000,000,000</p>
         <button
-          className="pointer-events-auto font-mono text-black bg-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors"
+          className="pointer-events-auto font-mono text-black bg-white px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 group relative overflow-hidden rainbow-btn"
           onClick={() => setGameOpen(true)}
+          style={{ '--rainbow-spread': '0' } as React.CSSProperties}
         >
-          Начать тратить
+          <span className="relative z-10">Начать тратить</span>
         </button>
+        <style>{`
+          .rainbow-btn {
+            transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease, background 0.3s ease;
+          }
+          .rainbow-btn:hover {
+            transform: scale(1.12);
+            background: white;
+            box-shadow:
+              0 0 12px 3px rgba(255,0,128,0.6),
+              0 0 24px 6px rgba(255,200,0,0.4),
+              0 0 36px 10px rgba(0,200,255,0.3);
+          }
+          .rainbow-btn::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(90deg, #ff0080, #ff8c00, #ffe000, #00ff80, #00cfff, #cc00ff, #ff0080);
+            background-size: 300% 100%;
+            animation: rainbow-border 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+            border-radius: 2px;
+          }
+          .rainbow-btn::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: white;
+            z-index: 0;
+          }
+          .rainbow-btn:hover::before {
+            opacity: 1;
+          }
+          @keyframes rainbow-border {
+            0%   { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+          }
+        `}</style>
       </div>
       {gameOpen && <SpendingGame onClose={() => setGameOpen(false)} />}
     </div>
