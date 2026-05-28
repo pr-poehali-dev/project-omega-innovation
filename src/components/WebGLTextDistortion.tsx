@@ -1,9 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import SpendingGame from '@/components/SpendingGame'
 
 export default function WebGLTextDistortion() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: 0, y: 0 })
   const mouseInsideRef = useRef(false)
+  const [gameOpen, setGameOpen] = useState(false)
   const specialTextPosRef = useRef({ x: 0, y: 0 })
   const timeRef = useRef(0)
 
@@ -531,11 +533,12 @@ export default function WebGLTextDistortion() {
         <p className="text-gray-500 text-xs tracking-widest uppercase mb-4 font-mono">у тебя есть $10,000,000,000</p>
         <button
           className="pointer-events-auto font-mono text-black bg-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors"
-          onClick={() => alert('Куда тратим первый миллиард?')}
+          onClick={() => setGameOpen(true)}
         >
           Начать тратить
         </button>
       </div>
+      {gameOpen && <SpendingGame onClose={() => setGameOpen(false)} />}
     </div>
   )
 }
