@@ -248,7 +248,7 @@ export default function SpendingGame({ onClose }: Props) {
                   <div className="min-w-0">
                     <div className="text-white text-sm font-bold">{item.name}</div>
                     <div className="text-gray-500 text-xs mt-0.5">{item.description}</div>
-                    <div className="text-gray-600 text-[10px] mt-1 tracking-wider">{formatMoney(item.price)}</div>
+                    <div className="text-green-500 text-[10px] mt-1 tracking-wider">{formatMoney(item.price)}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0 mt-1">
