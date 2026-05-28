@@ -521,12 +521,21 @@ export default function WebGLTextDistortion() {
   }, [])
 
   return (
-    <div className="w-full h-screen overflow-hidden bg-black touch-none">
+    <div className="w-full h-screen overflow-hidden bg-black touch-none relative">
       <canvas
         ref={canvasRef}
         className="border-0"
         style={{ display: 'block', width: '100%', height: '100%' }}
       />
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 pointer-events-none">
+        <p className="text-gray-500 text-xs tracking-widest uppercase mb-4 font-mono">у тебя есть $10,000,000,000</p>
+        <button
+          className="pointer-events-auto font-mono text-black bg-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors"
+          onClick={() => alert('Куда тратим первый миллиард?')}
+        >
+          Начать тратить
+        </button>
+      </div>
     </div>
   )
 }
