@@ -49,6 +49,7 @@ interface Props {
 
 export default function SpendingGame({ onClose }: Props) {
   const [spent, setSpent] = useState<Record<number, number>>({})
+  const [showSummary, setShowSummary] = useState(false)
 
   const totalSpent = Object.entries(spent).reduce((sum, [id, count]) => {
     const item = ITEMS.find(i => i.id === Number(id))
@@ -72,6 +73,70 @@ export default function SpendingGame({ onClose }: Props) {
       else delete next[id]
       return next
     })
+  }
+
+  const purchasedItems = ITEMS.filter(i => (spent[i.id] || 0) > 0)
+
+  if (showSummary) {
+    return (
+      <div className="fixed inset-0 z-50 bg-black flex flex-col font-mono overflow-y-auto">
+        <div className="max-w-2xl mx-auto w-full px-6 py-12 flex flex-col min-h-full">
+          <p className="text-gray-500 text-xs tracking-widest uppercase mb-2">итоговый список</p>
+          <h2 className="text-white text-3xl font-bold mb-1">Ты потратил</h2>
+          <p className="text-4xl font-bold mb-8" style={{ color: totalSpent >= BUDGET ? '#f87171' : '#a3e635' }}>
+            {formatMoney(totalSpent)}
+          </p>
+
+          {purchasedItems.length === 0 ? (
+            <p className="text-gray-600 text-sm">Ты ничего не купил. Жадина 👀</p>
+          ) : (
+            <div className="flex flex-col gap-3 mb-8">
+              {purchasedItems.map(item => (
+                <div key={item.id} className="flex items-center justify-between border border-gray-800 px-4 py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{item.emoji}</span>
+                    <div>
+                      <div className="text-white text-sm font-bold">{item.name}</div>
+                      <div className="text-gray-500 text-xs">{item.description}</div>
+                    </div>
+                  </div>
+                  <div className="text-right shrink-0 ml-4">
+                    <div className="text-white text-sm">×{spent[item.id]}</div>
+                    <div className="text-gray-400 text-xs">{formatMoney(item.price * spent[item.id])}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="border-t border-gray-800 pt-4 mb-8">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-500 uppercase tracking-widest">Осталось</span>
+              <span className={remaining <= 0 ? 'text-red-400 font-bold' : 'text-white font-bold'}>{formatMoney(remaining)}</span>
+            </div>
+          </div>
+
+          {remaining <= 0 && (
+            <p className="text-white text-center tracking-widest uppercase text-sm mb-8">💸 Планета куплена. Поздравляем.</p>
+          )}
+
+          <div className="flex gap-3 mt-auto">
+            <button
+              onClick={() => setShowSummary(false)}
+              className="flex-1 border border-gray-700 text-gray-400 hover:text-white hover:border-white py-3 text-xs tracking-widest uppercase transition-colors"
+            >
+              Назад
+            </button>
+            <button
+              onClick={() => { setSpent({}); setShowSummary(false) }}
+              className="flex-1 bg-white text-black py-3 text-xs tracking-widest uppercase hover:bg-gray-200 transition-colors"
+            >
+              Начать заново
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -139,9 +204,18 @@ export default function SpendingGame({ onClose }: Props) {
       </div>
 
       {/* Footer */}
-      {remaining <= 0 && (
-        <div className="border-t border-gray-800 px-6 py-4 text-center">
-          <p className="text-white tracking-widest uppercase text-sm">💸 Всё потрачено! Планета куплена.</p>
+      {purchasedItems.length > 0 && (
+        <div className="border-t border-gray-800 px-6 py-4 flex items-center justify-between">
+          {remaining <= 0
+            ? <p className="text-red-400 tracking-widest uppercase text-xs">💸 Планета куплена!</p>
+            : <p className="text-gray-500 text-xs tracking-widest uppercase">куплено {purchasedItems.length} позиций</p>
+          }
+          <button
+            onClick={() => setShowSummary(true)}
+            className="bg-white text-black px-6 py-2 text-xs tracking-widest uppercase hover:bg-gray-200 transition-colors"
+          >
+            Итог →
+          </button>
         </div>
       )}
     </div>
