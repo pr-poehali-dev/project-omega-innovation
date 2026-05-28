@@ -185,17 +185,12 @@ export default function WebGLTextDistortion() {
       const viewportWidth = window.innerWidth
       const isDesktop = viewportWidth >= 768
 
-      let targetWidth
-      if (isDesktop) {
-        targetWidth = Math.min(viewportWidth * 0.8, 1000)
-      } else {
-        targetWidth = viewportWidth - 40
-      }
+      const targetWidth = viewportWidth
 
       ctx.font = '12px monospace'
       const actualCharWidth = ctx.measureText('купи ').width / 4 // 4 characters in "купи "
 
-      const internalPadding = isDesktop ? 80 : 15
+      const internalPadding = isDesktop ? 40 : 10
       const availableTextWidth = targetWidth - (internalPadding * 2)
 
       const baseCharsPerLine = Math.floor(availableTextWidth / actualCharWidth)
@@ -368,21 +363,16 @@ export default function WebGLTextDistortion() {
       const viewportWidth = window.innerWidth
       const isDesktop = viewportWidth >= 768
 
-      let targetWidth
-      if (isDesktop) {
-        targetWidth = Math.min(viewportWidth * 0.8, 1000)
-      } else {
-        targetWidth = viewportWidth - 40
-      }
+      const targetWidth = viewportWidth
 
       const tempCanvas = document.createElement('canvas')
       const tempCtx = tempCanvas.getContext('2d')
       if (!tempCtx) return
 
       tempCtx.font = '12px monospace'
-      const actualCharWidth = tempCtx.measureText('неа ').width / 4
+      const actualCharWidth = tempCtx.measureText('купи ').width / 4
 
-      const internalPadding = isDesktop ? 80 : 15
+      const internalPadding = isDesktop ? 40 : 10
       const availableTextWidth = targetWidth - (internalPadding * 2)
 
       const baseCharsPerLine = Math.floor(availableTextWidth / actualCharWidth)
@@ -531,11 +521,11 @@ export default function WebGLTextDistortion() {
   }, [])
 
   return (
-    <div className="w-full h-screen overflow-hidden bg-black flex justify-center px-[0] touch-none">
+    <div className="w-full h-screen overflow-hidden bg-black touch-none">
       <canvas
         ref={canvasRef}
         className="border-0"
-        style={{ display: 'block' }}
+        style={{ display: 'block', width: '100%', height: '100%' }}
       />
     </div>
   )
