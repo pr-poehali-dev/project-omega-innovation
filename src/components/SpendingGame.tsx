@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Icon from '@/components/ui/icon'
 
-const BUDGET = 10_000_000_000
+const BUDGET = 100
 
 const ITEMS = [
   { id: 1,  emoji: '🍔', name: 'Бургер', price: 5, description: 'Просто поесть' },
