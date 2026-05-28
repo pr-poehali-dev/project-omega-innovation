@@ -384,11 +384,11 @@ export default function WebGLTextDistortion() {
 
       const actualCanvasWidth = (finalCharsPerLine * actualCharWidth) + (internalPadding * 2)
 
-      canvas.width = actualCanvasWidth
+      canvas.width = viewportWidth
       canvas.height = window.innerHeight
 
-      canvas.style.width = actualCanvasWidth + 'px'
-      canvas.style.height = canvas.height + 'px'
+      canvas.style.width = '100%'
+      canvas.style.height = '100vh'
 
       gl.viewport(0, 0, canvas.width, canvas.height)
 
