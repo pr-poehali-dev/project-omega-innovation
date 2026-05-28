@@ -530,7 +530,7 @@ export default function WebGLTextDistortion() {
         style={{ display: 'block', width: '100%', height: '100%' }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 pointer-events-none">
-        <p className="text-gray-500 text-xs tracking-widest uppercase mb-4 font-mono">у тебя есть $100</p>
+        <p className="text-gray-500 text-xs tracking-widest uppercase mb-4 font-mono">у тебя есть $100,000,000,000</p>
         <button
           className="pointer-events-auto font-mono text-black bg-white px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors"
           onClick={() => setGameOpen(true)}
