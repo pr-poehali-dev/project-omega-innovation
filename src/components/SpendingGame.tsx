@@ -33,7 +33,7 @@ const ITEMS = [
   { id: 27, emoji: '⚽', name: 'Футбольный клуб', price: 1_000_000_000, description: 'Средний клуб АПЛ' },
   { id: 28, emoji: '🌍', name: 'Накормить страну', price: 2_000_000_000, description: '1 год еды для Эфиопии' },
   { id: 29, emoji: '🏦', name: 'Купить банк', price: 5_000_000_000, description: 'Средний европейский банк' },
-  { id: 30, emoji: '🌐', name: 'Купить всё', price: 10_000_000_000, description: 'Весь бюджет за раз' },
+
 ]
 
 function formatMoney(n: number) {
