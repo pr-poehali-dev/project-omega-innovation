@@ -529,12 +529,11 @@ export default function WebGLTextDistortion() {
       onMouseEnter={() => setBgHovered(true)}
       onMouseLeave={() => setBgHovered(false)}
       style={{
+        backgroundSize: '600% 600%',
+        animation: bgHovered ? 'bgShift 3s ease infinite' : 'none',
         background: bgHovered
-          ? 'linear-gradient(135deg, #0a0a0a, #0d0a1a, #0a1a0d, #1a0a0a, #0a0a0a)'
+          ? 'linear-gradient(135deg, #1a003a, #003a1a, #3a1a00, #001a3a, #3a0028, #003a2a, #2a003a)'
           : '#000000',
-        backgroundSize: '400% 400%',
-        transition: 'background 0.6s ease',
-        animation: bgHovered ? 'bgShift 4s ease infinite' : 'none',
       }}
     >
       <canvas
