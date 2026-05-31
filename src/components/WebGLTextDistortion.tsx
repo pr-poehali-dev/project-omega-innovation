@@ -524,7 +524,19 @@ export default function WebGLTextDistortion() {
   }, [])
 
   return (
-    <div className="w-full h-screen overflow-hidden bg-black touch-none relative">
+    <div
+      className="w-full h-screen overflow-hidden touch-none relative"
+      onMouseEnter={() => setBgHovered(true)}
+      onMouseLeave={() => setBgHovered(false)}
+      style={{
+        background: bgHovered
+          ? 'linear-gradient(135deg, #0a0a0a, #0d0a1a, #0a1a0d, #1a0a0a, #0a0a0a)'
+          : '#000000',
+        backgroundSize: '400% 400%',
+        transition: 'background 0.6s ease',
+        animation: bgHovered ? 'bgShift 4s ease infinite' : 'none',
+      }}
+    >
       <canvas
         ref={canvasRef}
         className="border-0"
@@ -576,6 +588,11 @@ export default function WebGLTextDistortion() {
           @keyframes rainbow-border {
             0%   { background-position: 0% 50%; }
             100% { background-position: 300% 50%; }
+          }
+          @keyframes bgShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
           }
         `}</style>
       </div>
