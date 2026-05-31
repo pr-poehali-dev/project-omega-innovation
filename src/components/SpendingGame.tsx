@@ -240,7 +240,12 @@ export default function SpendingGame({ onClose }: Props) {
           return (
             <div
               key={item.id}
-              className={`border p-4 transition-colors ${count > 0 ? 'border-white bg-white/5' : 'border-gray-800 hover:border-gray-600'}`}
+              className={`border p-4 transition-all duration-150 select-none cursor-pointer ${count > 0 ? 'border-white bg-white/5' : 'border-gray-800 hover:border-gray-600'}`}
+              style={{ transform: 'scale(1)', transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s, background 0.2s' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.03)' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)' }}
+              onMouseDown={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(0.96)' }}
+              onMouseUp={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.03)' }}
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1 min-w-0 flex gap-3 items-start">

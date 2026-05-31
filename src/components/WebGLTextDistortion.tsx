@@ -6,6 +6,7 @@ export default function WebGLTextDistortion() {
   const mouseRef = useRef({ x: 0, y: 0 })
   const mouseInsideRef = useRef(false)
   const [gameOpen, setGameOpen] = useState(false)
+  const [bgHovered, setBgHovered] = useState(false)
   const specialTextPosRef = useRef({ x: 0, y: 0 })
   const timeRef = useRef(0)
 
